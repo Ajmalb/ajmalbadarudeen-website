@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ajmal B — IT Support & Network Engineer | Doha, Qatar</title>
+  <meta name="description" content="Ajmal B — IT Support & Network Engineer in Doha, Qatar with 7 years of experience in networking, Fortinet firewalls, Active Directory, hospitality IT systems and end-user support." />
+  <meta property="og:title" content="Ajmal B — IT Support & Network Engineer" />
+  <meta property="og:description" content="7 years of experience in IT support, networking and firewall security in Doha, Qatar." />
+  <meta property="og:image" content="assets/ajmal.jpg" />
+  <meta name="theme-color" content="#060913" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #060913;
+      --bg-2: #0a0f1e;
+      --surface: rgba(255, 255, 255, 0.035);
+      --surface-2: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-2: rgba(255, 255, 255, 0.14);
+      --text: #eef2f8;
+      --muted: #94a0b8;
+      --dim: #64708a;
+      --c1: #22d3ee;
+      --c2: #3b82f6;
+      --c3: #8b5cf6;
+      --grad: linear-gradient(120deg, var(--c1), var(--c2) 50%, var(--c3));
+      --radius: 18px;
+      --max: 1180px;
+      --head: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    h1, h2, h3, h4 { font-family: var(--head); letter-spacing: -0.02em; line-height: 1.15; }
+    .container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    .grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+    /* ---------- Ambient background ---------- */
+    .bg-orbs { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; }
+    .bg-orbs span {
+      position: absolute; border-radius: 50%; filter: blur(110px); opacity: .32;
+      animation: drift 22s ease-in-out infinite alternate;
+    }
+    .bg-orbs span:nth-child(1) { width: 520px; height: 520px; background: var(--c2); top: -160px; right: -120px; }
+    .bg-orbs span:nth-child(2) { width: 420px; height: 420px; background: var(--c3); top: 45%; left: -180px; animation-delay: -7s; opacity: .22; }
+    .bg-orbs span:nth-child(3) { width: 380px; height: 380px; background: var(--c1); bottom: -160px; right: 20%; animation-delay: -14s; opacity: .16; }
+    @keyframes drift { to { transform: translate(60px, 40px) scale(1.12); } }
+    .bg-grid {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .5;
+      background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(to bottom, #000, transparent 85%);
+    }
+
+    /* ---------- Progress + Nav ---------- */
+    .progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--grad); z-index: 100; }
+    header { position: fixed; top: 14px; left: 0; right: 0; z-index: 60; }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 62px; padding: 0 10px 0 22px; border-radius: 999px;
+      background: rgba(10, 15, 30, .55); border: 1px solid var(--border);
+      backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%);
+      transition: background .3s, box-shadow .3s;
+    }
+    header.scrolled .nav { background: rgba(10, 15, 30, .82); box-shadow: 0 12px 40px -18px rgba(0,0,0,.8); }
+    .logo { font-family: var(--head); font-weight: 800; font-size: 1.12rem; display: flex; align-items: center; gap: 10px; }
+    .logo-mark {
+      width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center;
+      background: var(--grad); color: #060913; font-size: .9rem; font-weight: 800;
+    }
+    .nav-links { display: flex; gap: 4px; list-style: none; }
+    .nav-links a {
+      display: block; padding: 8px 16px; border-radius: 999px; color: var(--muted);
+      font-size: .9rem; font-weight: 500; transition: color .2s, background .2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--text); background: var(--surface-2); }
+    .nav-cta {
+      padding: 10px 20px; border-radius: 999px; background: var(--text); color: #060913;
+      font-weight: 600; font-size: .88rem; transition: transform .2s, box-shadow .2s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px -8px rgba(255,255,255,.5); }
+    .menu-btn { display: none; background: none; border: 0; color: var(--text); cursor: pointer; padding: 8px; }
+
+    /* ---------- Hero ---------- */
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: 130px 0 60px; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 64px; align-items: center; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px 7px 8px; border-radius: 999px;
+      background: var(--surface); border: 1px solid var(--border); font-size: .85rem; color: var(--muted);
+    }
+    .badge b {
+      background: rgba(52, 211, 153, .14); color: #34d399; padding: 2px 10px; border-radius: 999px;
+      font-weight: 600; font-size: .78rem; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .badge b::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #34d399; animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(52,211,153,.7); } 70% { box-shadow: 0 0 0 8px rgba(52,211,153,0); } 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); } }
+    .hero h1 { font-size: clamp(3rem, 7.5vw, 5.4rem); font-weight: 800; letter-spacing: -0.045em; margin-top: 24px; line-height: 1; }
+    .hero .title { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: clamp(1rem, 1.9vw, 1.2rem); font-weight: 500; color: var(--c1); margin-top: 18px; min-height: 1.5em; }
+    .caret { display: inline-block; width: 10px; height: 1.1em; margin-left: 2px; vertical-align: -0.2em; background: var(--c1); animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .hero .lead { color: var(--muted); font-size: 1.1rem; max-width: 560px; margin-top: 22px; }
+    .cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 12px;
+      font-weight: 600; font-size: .95rem; transition: transform .25s, box-shadow .25s, background .25s, border-color .25s;
+    }
+    .btn svg { width: 17px; height: 17px; transition: transform .25s; }
+    .btn-primary { background: var(--grad); color: #fff; box-shadow: 0 12px 34px -12px rgba(59, 130, 246, .8); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -12px rgba(59, 130, 246, .9); }
+    .btn-primary:hover svg { transform: translateX(3px); }
+    .btn-ghost { border: 1px solid var(--border-2); background: var(--surface); }
+    .btn-ghost:hover { border-color: rgba(255,255,255,.3); background: var(--surface-2); transform: translateY(-2px); }
+    .quick { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 36px; }
+    .quick a {
+      display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 10px;
+      background: var(--surface); border: 1px solid var(--border); color: var(--muted); font-size: .85rem;
+      transition: color .2s, border-color .2s, transform .2s;
+    }
+    .quick a:hover { color: var(--text); border-color: var(--border-2); transform: translateY(-2px); }
+    .quick svg { width: 16px; height: 16px; color: var(--c1); flex-shrink: 0; }
+
+    /* Portrait with rotating gradient ring */
+    .portrait { position: relative; justify-self: center; width: min(380px, 100%); }
+    .ring {
+      position: relative; border-radius: 30px; padding: 3px; overflow: hidden; isolation: isolate;
+      box-shadow: 0 40px 80px -30px rgba(59, 130, 246, .55);
+    }
+    .ring::before {
+      content: ""; position: absolute; inset: -60%; z-index: -1;
+      background: conic-gradient(from 0deg, var(--c1), var(--c2), var(--c3), transparent 60%, var(--c1));
+      animation: spin 6s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .ring-inner { border-radius: 27px; overflow: hidden; aspect-ratio: 4 / 5; background: var(--bg-2); }
+    .ring-inner img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .chip {
+      position: absolute; display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 16px;
+      background: rgba(12, 18, 36, .8); border: 1px solid var(--border-2);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 20px 40px -20px rgba(0,0,0,.8); animation: bob 6s ease-in-out infinite;
+    }
+    .chip .ico { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; background: var(--grad); color: #fff; }
+    .chip .ico svg { width: 19px; height: 19px; }
+    .chip strong { display: block; font-family: var(--head); font-size: 1.05rem; line-height: 1.2; }
+    .chip small { color: var(--muted); font-size: .78rem; }
+    .chip.c-a { left: -44px; bottom: 56px; }
+    .chip.c-b { right: -36px; top: 44px; animation-delay: -3s; }
+    @keyframes bob { 50% { transform: translateY(-10px); } }
+
+    /* ---------- Marquee ---------- */
+    .marquee {
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,.015); padding: 22px 0; overflow: hidden;
+      mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    }
+    .track { display: flex; gap: 56px; width: max-content; animation: scroll 38s linear infinite; }
+    .track span {
+      font-family: var(--head); font-weight: 700; font-size: 1.05rem; color: var(--dim);
+      white-space: nowrap; display: inline-flex; align-items: center; gap: 56px;
+    }
+    .track span::after { content: "✦"; font-size: .7rem; color: var(--c2); }
+    @keyframes scroll { to { transform: translateX(-50%); } }
+
+    /* ---------- Sections ---------- */
+    section { padding: 110px 0; position: relative; }
+    .head { max-width: 640px; margin-bottom: 56px; }
+    .kicker {
+      display: inline-flex; align-items: center; gap: 10px; color: var(--c1); font-size: .78rem;
+      font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+    }
+    .kicker::before { content: ""; width: 26px; height: 2px; border-radius: 2px; background: var(--grad); }
+    .head h2 { font-size: clamp(2rem, 4.4vw, 3rem); font-weight: 800; margin-top: 14px; letter-spacing: -0.035em; }
+    .head p { color: var(--muted); margin-top: 14px; font-size: 1.05rem; }
+
+    .glass {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      position: relative; overflow: hidden; transition: border-color .3s, transform .3s, background .3s;
+    }
+    /* Mouse-follow spotlight */
+    .spot::before {
+      content: ""; position: absolute; inset: 0; opacity: 0; transition: opacity .3s; pointer-events: none;
+      background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(59, 130, 246, .14), transparent 45%);
+    }
+    .spot:hover::before { opacity: 1; }
+    .spot:hover { border-color: var(--border-2); transform: translateY(-3px); }
+
+    /* ---------- About ---------- */
+    .about-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 28px; }
+    .about-card { padding: 40px; }
+    .about-card p { color: var(--muted); font-size: 1.06rem; margin-bottom: 18px; }
+    .about-card p:last-child { margin-bottom: 0; }
+    .about-card strong { color: var(--text); font-weight: 600; }
+    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .stat { padding: 28px; display: flex; flex-direction: column; justify-content: space-between; min-height: 160px; }
+    .stat .num { font-family: var(--head); font-size: 3rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+    .stat .lbl { color: var(--muted); font-size: .92rem; margin-top: 10px; }
+    .stat .lbl b { display: block; color: var(--text); font-weight: 600; font-size: 1rem; }
+
+    /* ---------- Skills (bento) ---------- */
+    .bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; }
+    .skill { padding: 30px; grid-column: span 2; }
+    .skill.wide { grid-column: span 3; }
+    .skill .icon {
+      width: 50px; height: 50px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 20px;
+      background: linear-gradient(135deg, rgba(34,211,238,.16), rgba(139,92,246,.16));
+      border: 1px solid rgba(255,255,255,.08); color: var(--c1);
+    }
+    .skill .icon svg { width: 23px; height: 23px; }
+    .skill h3 { font-size: 1.15rem; margin-bottom: 10px; }
+    .skill p { color: var(--muted); font-size: .95rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 18px; }
+    .tag {
+      font-size: .76rem; font-weight: 500; color: #c7d2fe; padding: 4px 11px; border-radius: 999px;
+      background: rgba(99, 102, 241, .1); border: 1px solid rgba(99, 102, 241, .22);
+    }
+
+    /* ---------- Experience (tabs) ---------- */
+    .exp { display: grid; grid-template-columns: 300px 1fr; gap: 24px; align-items: start; }
+    .tabs { display: flex; flex-direction: column; gap: 10px; position: sticky; top: 110px; }
+    .tab {
+      display: flex; align-items: center; gap: 14px; width: 100%; text-align: left; cursor: pointer;
+      padding: 16px 18px; border-radius: 14px; border: 1px solid var(--border); background: var(--surface);
+      color: var(--muted); font: 600 .95rem var(--head); transition: all .25s;
+    }
+    .tab svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .tab:hover { color: var(--text); border-color: var(--border-2); }
+    .tab.active {
+      color: var(--text);
+      background: linear-gradient(var(--bg-2), var(--bg-2)) padding-box, var(--grad) border-box;
+      border: 1px solid transparent; box-shadow: 0 14px 30px -18px rgba(59,130,246,.8);
+    }
+    .tab.active svg { color: var(--c1); }
+    .panel { padding: 40px; display: none; }
+    .panel.active { display: block; animation: fadeUp .45s ease; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+    .panel-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
+    .panel h3 { font-size: 1.55rem; }
+    .pill { font-size: .78rem; font-weight: 600; color: var(--c1); padding: 5px 12px; border-radius: 999px; background: rgba(34,211,238,.1); border: 1px solid rgba(34,211,238,.25); }
+    .panel > p { color: var(--muted); margin-bottom: 24px; }
+    .checks { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .checks li {
+      display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: 12px;
+      background: rgba(255,255,255,.025); border: 1px solid var(--border); font-size: .94rem; color: #cfd6e4;
+    }
+    .checks li svg { flex-shrink: 0; width: 20px; height: 20px; margin-top: 1px; color: var(--c1); }
+
+    /* ---------- Education ---------- */
+    .edu-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 24px; }
+    .block { padding: 36px; }
+    .block h3.label { font-size: 1.2rem; display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+    .block h3.label svg { width: 22px; height: 22px; color: var(--c1); }
+    .timeline { position: relative; padding-left: 30px; }
+    .timeline::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(var(--c1), var(--c3), transparent); }
+    .tl { position: relative; padding-bottom: 28px; }
+    .tl:last-child { padding-bottom: 0; }
+    .tl::before {
+      content: ""; position: absolute; left: -30px; top: 5px; width: 16px; height: 16px; border-radius: 50%;
+      background: var(--bg); border: 3px solid var(--c1); box-shadow: 0 0 0 5px rgba(34,211,238,.12);
+    }
+    .tl .date { font-size: .78rem; font-weight: 600; letter-spacing: .08em; color: var(--c1); }
+    .tl h4 { font-size: 1.08rem; margin-top: 4px; }
+    .tl p { color: var(--muted); font-size: .93rem; }
+    .langs { display: flex; flex-wrap: wrap; gap: 10px; }
+    .lang {
+      padding: 10px 18px; border-radius: 12px; background: rgba(255,255,255,.04); border: 1px solid var(--border);
+      font-weight: 500; font-size: .94rem; transition: border-color .2s, transform .2s;
+    }
+    .lang:hover { border-color: var(--c2); transform: translateY(-2px); }
+    .facts { list-style: none; margin-top: 30px; }
+    .facts li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-top: 1px solid var(--border); font-size: .94rem; }
+    .facts li span:first-child { color: var(--muted); }
+    .facts li span:last-child { font-weight: 600; text-align: right; }
+
+    /* ---------- Contact ---------- */
+    .contact {
+      border-radius: 28px; padding: 72px 48px; text-align: center; position: relative; overflow: hidden;
+      background:
+        radial-gradient(600px 300px at 15% 0%, rgba(34,211,238,.18), transparent 60%),
+        radial-gradient(600px 300px at 85% 100%, rgba(139,92,246,.2), transparent 60%),
+        var(--bg-2);
+      border: 1px solid var(--border-2);
+    }
+    .contact h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; letter-spacing: -0.04em; margin-top: 14px; }
+    .contact > p { color: var(--muted); max-width: 560px; margin: 16px auto 0; font-size: 1.05rem; }
+    .contact .cta { justify-content: center; }
+    .c-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; text-align: left; }
+    .c-item { display: flex; align-items: center; gap: 16px; padding: 20px; }
+    .c-item .ic {
+      width: 46px; height: 46px; flex-shrink: 0; border-radius: 12px; display: grid; place-items: center;
+      background: linear-gradient(135deg, rgba(34,211,238,.16), rgba(139,92,246,.16)); color: var(--c1);
+    }
+    .c-item .ic svg { width: 21px; height: 21px; }
+    .c-item small { display: block; color: var(--muted); font-size: .78rem; }
+    .c-item span { font-weight: 600; font-size: .93rem; word-break: break-word; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--border); margin-top: 110px; }
+    .foot { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; color: var(--muted); font-size: .88rem; }
+    .to-top {
+      width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+      border: 1px solid var(--border-2); background: var(--surface); transition: transform .2s, border-color .2s;
+    }
+    .to-top:hover { transform: translateY(-3px); border-color: var(--c2); }
+    .to-top svg { width: 18px; height: 18px; }
+
+    /* ---------- Reveal ---------- */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1020px) {
+      .bento { grid-template-columns: repeat(2, 1fr); }
+      .skill, .skill.wide { grid-column: span 1; }
+      .exp { grid-template-columns: 1fr; }
+      .tabs { position: static; flex-direction: row; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+      .tabs::-webkit-scrollbar { display: none; }
+      .tab { width: auto; white-space: nowrap; }
+      .c-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 880px) {
+      .hero-grid, .about-grid, .edu-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 120px; }
+      .hero-grid { gap: 56px; }
+      .portrait { order: -1; width: min(300px, 78%); }
+      .chip.c-a { left: -24px; }
+      .chip.c-b { right: -20px; }
+      .nav-cta { display: none; }
+      .menu-btn { display: block; }
+      .nav-links {
+        position: absolute; top: 72px; left: 20px; right: 20px; flex-direction: column; gap: 2px; padding: 10px;
+        background: rgba(10, 15, 30, .96); border: 1px solid var(--border); border-radius: 18px;
+        opacity: 0; transform: translateY(-8px); pointer-events: none; transition: opacity .25s, transform .25s;
+      }
+      .nav-links.open { opacity: 1; transform: none; pointer-events: auto; }
+      .nav-links a { padding: 12px 16px; border-radius: 10px; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 80px 0; }
+      .bento, .checks, .c-grid { grid-template-columns: 1fr; }
+      .about-card, .panel, .block { padding: 26px; }
+      .contact { padding: 52px 22px; }
+      .stat { min-height: 130px; padding: 22px; }
+      .stat .num { font-size: 2.4rem; }
+      .chip { padding: 10px 12px; }
+      .chip .ico { width: 32px; height: 32px; }
+      .chip.c-a { left: -14px; bottom: 30px; }
+      .chip.c-b { right: -14px; top: 26px; }
+      footer { margin-top: 80px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-orbs" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="progress" id="progress"></div>
+
+  <!-- ===== Header ===== -->
+  <header id="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="#home" class="logo"><span class="logo-mark">AB</span>Ajmal B</a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta">Hire Me</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge reveal"><b>Available</b> Open to new opportunities · Doha, Qatar</div>
+        <h1 class="reveal">Hi, I'm <span class="grad-text">Ajmal B</span></h1>
+        <div class="title reveal">&gt; <span id="role">IT Support Engineer</span><span class="caret"></span></div>
+        <p class="lead reveal">
+          IT Support professional with hands-on experience keeping hotels,
+          enterprises and banking systems running — from networks and firewalls to complete IT and Network support.
+        </p>
+        <div class="cta reveal">
+          <a href="#contact" class="btn btn-primary">Contact Me
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#experience" class="btn btn-ghost">View Experience</a>
+        </div>
+        <div class="quick reveal">
+          <a href="https://www.linkedin.com/in/ajmal-b-9831b0178" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.460v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.130zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+            LinkedIn
+          </a>
+          <a href="mailto:123ajmalb@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            Email
+          </a>
+          <a href="tel:+97430749247">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+            Qatar
+          </a>
+          <a href="tel:+919633334100">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+            India
+          </a>
+          <a href="https://wa.me/97430749247" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.170-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.23 1.36.2 1.88.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.07-.13-.27-.2-.57-.35zM12.04 21.5a9.43 9.43 0 0 1-4.8-1.31l-.35-.2-3.57.93.96-3.48-.23-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.24-9.44 9.45-9.44a9.4 9.4 0 0 1 9.44 9.45c0 5.2-4.24 9.43-9.45 9.43zm8.04-17.47A11.3 11.3 0 0 0 12.04.7C5.77.7.67 5.8.67 12.06c0 2 .52 3.960 1.52 5.68L.57 23.65l6.04-1.58a11.33 11.33 0 0 0 5.43 1.38c6.26 0 11.36-5.1 11.37-11.36 0-3.04-1.19-5.89-3.34-8.04z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="portrait reveal">
+        <div class="ring"><div class="ring-inner"><img src="assets/ajmal.jpg" alt="Portrait of Ajmal B" /></div></div>
+        <div class="chip c-a">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg></div>
+          <div><strong>7+ Years</strong><small>IT Experience</small></div>
+        </div>
+        <div class="chip c-b">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><strong>Network</strong><small>&amp; Security</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Technology marquee ===== -->
+  <div class="marquee" aria-label="Technologies">
+    <div class="track">
+      <span>Fortinet FortiGate</span><span>Active Directory</span><span>Group Policy</span><span>Opera PMS</span><span>Micros POS</span><span>OSPF · EIGRP · RIP v2</span><span>VLAN &amp; Inter-VLAN Routing</span><span>Windows 365</span><span>Avaya IP Telephony</span><span>VISION LINE</span><span>IP CCTV</span><span>NCR &amp; Wincor ATMs</span>
+      <span>Fortinet FortiGate</span><span>Active Directory</span><span>Group Policy</span><span>Opera PMS</span><span>Micros POS</span><span>OSPF · EIGRP · RIP v2</span><span>VLAN &amp; Inter-VLAN Routing</span><span>Windows 365</span><span>Avaya IP Telephony</span><span>VISION LINE</span><span>IP CCTV</span><span>NCR &amp; Wincor ATMs</span>
+    </div>
+  </div>
+
+  <!-- ===== About ===== -->
+  <section id="about">
+    <div class="container">
+      <div class="head reveal">
+        <span class="kicker">About</span>
+        <h2>Professional <span class="grad-text">Summary</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="glass spot about-card reveal">
+          <p>
+            A <strong>detail-oriented, technically skilled IT Support professional</strong> with 7 years of experience
+            troubleshooting, maintaining and supporting IT systems across hardware, software and network platforms.
+          </p>
+          <p>
+            Provides efficient technical assistance, manages IT assets and keeps downtime to a minimum. Experience spans
+            <strong>end-user support, system configuration, ELV systems</strong> and routine maintenance, with a strong
+            focus on problem-solving and customer satisfaction.
+          </p>
+          <p>
+            Committed to maintaining <strong>secure and optimized IT environments</strong> in fast-paced business settings,
+            particularly in hospitality, enterprise and banking.
+          </p>
+        </div>
+        <div class="stats">
+          <div class="glass spot stat reveal"><div class="num grad-text"><span data-count="7">7</span>+</div><div class="lbl"><b>Years</b>of IT experience</div></div>
+          <div class="glass spot stat reveal"><div class="num grad-text">24/7</div><div class="lbl"><b>Support</b>uptime-focused mindset</div></div>
+          <div class="glass spot stat reveal"><div class="num grad-text" data-count="3">3</div><div class="lbl"><b>Industries</b>hospitality, enterprise, banking</div></div>
+          <div class="glass spot stat reveal"><div class="num grad-text" data-count="5">5</div><div class="lbl"><b>Languages</b>spoken fluently</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Skills ===== -->
+  <section id="skills">
+    <div class="container">
+      <div class="head reveal">
+        <span class="kicker">Expertise</span>
+        <h2>Technical <span class="grad-text">Skills</span></h2>
+        <p>A broad, hands-on skill set covering infrastructure, security, hospitality systems and specialised hardware.</p>
+      </div>
+      <div class="bento">
+        <div class="glass spot skill wide reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M12 8v4M5 16v-2h14v2"/></svg></div>
+          <h3>Networking</h3>
+          <p>Configuring and troubleshooting routers, switches, VLANs and routing protocols, with strong knowledge of TCP/IP subnetting and IP management.</p>
+          <div class="tags"><span class="tag">EIGRP</span><span class="tag">OSPF</span><span class="tag">RIP v2</span><span class="tag">VLAN</span><span class="tag">TCP/IP</span><span class="tag">Access Points</span></div>
+        </div>
+        <div class="glass spot skill wide reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <h3>Firewall &amp; Network Security</h3>
+          <p>Fortinet firewall configuration and management, inter-VLAN routing and implementing secure network access.</p>
+          <div class="tags"><span class="tag">FortiGate</span><span class="tag">Inter-VLAN</span><span class="tag">Security Policies</span></div>
+        </div>
+        <div class="glass spot skill reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="7" rx="1.5"/><rect x="3" y="14" width="18" height="7" rx="1.5"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></div>
+          <h3>Server &amp; Directory</h3>
+          <p>Active Directory (AD DS), Group Policy management and domain troubleshooting.</p>
+          <div class="tags"><span class="tag">AD DS</span><span class="tag">GPO</span></div>
+        </div>
+        <div class="glass spot skill reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <h3>System Installation</h3>
+          <p>Opera PMS, printers (Canon, HP, thermal), Windows 365 deployment and Outlook configuration.</p>
+          <div class="tags"><span class="tag">Opera PMS</span><span class="tag">Windows 365</span></div>
+        </div>
+        <div class="glass spot skill reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+          <h3>ELV &amp; Access Control</h3>
+          <p>Door lock systems, biometric devices, encoder programming and staff access management.</p>
+          <div class="tags"><span class="tag">VISION LINE</span><span class="tag">Biometrics</span></div>
+        </div>
+        <div class="glass spot skill reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="m8 21 4-4 4 4"/></svg></div>
+          <h3>IPTV &amp; Telephony</h3>
+          <p>IPTV setup and channel configuration; Avaya IP telephone installation, termination and users.</p>
+          <div class="tags"><span class="tag">Hoist Group</span><span class="tag">Avaya IP</span></div>
+        </div>
+        <div class="glass spot skill reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div>
+          <h3>ATM &amp; Banking Devices</h3>
+          <p>NCR &amp; Wincor ATMs, card readers, EPP, printers, pick lines, bill validators and cassettes.</p>
+          <div class="tags"><span class="tag">NCR</span><span class="tag">Wincor</span><span class="tag">EPP</span></div>
+        </div>
+        <div class="glass spot skill reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 10 21 7v10l-5-3z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></div>
+          <h3>CCTV &amp; Surveillance</h3>
+          <p>Configuration of IP-based CCTV camera systems using specialised configuration tools.</p>
+          <div class="tags"><span class="tag">IP Cameras</span><span class="tag">NVR</span></div>
+        </div>
+        <div class="glass spot skill reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div>
+          <h3>Maintenance &amp; Support</h3>
+          <p>Hardware diagnostics, software troubleshooting, preventive maintenance and end-user support.</p>
+          <div class="tags"><span class="tag">Diagnostics</span><span class="tag">Helpdesk</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Experience ===== -->
+  <section id="experience">
+    <div class="container">
+      <div class="head reveal">
+        <span class="kicker">Experience</span>
+        <h2>Professional <span class="grad-text">Experience</span></h2>
+        <p>Key responsibilities across hospitality IT, enterprise systems and network infrastructure.</p>
+      </div>
+      <div class="exp reveal">
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-tab="p1" role="tab">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M14 9h1M9 13h1M14 13h1M10 21v-4h4v4"/></svg>
+            Hospitality &amp; End-User IT
+          </button>
+          <button class="tab" data-tab="p2" role="tab">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+            Security, Access &amp; Systems
+          </button>
+          <button class="tab" data-tab="p3" role="tab">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M12 8v4M5 16v-2h14v2"/></svg>
+            Network Infrastructure
+          </button>
+          <button class="tab" data-tab="p4" role="tab">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 10 21 7v10l-5-3z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
+            Recovery &amp; Surveillance
+          </button>
+        </div>
+
+        <div>
+          <div class="glass panel active" id="p1" role="tabpanel">
+            <div class="panel-top"><h3>Hospitality &amp; End-User IT</h3><span class="pill">Hotels &amp; Guest Services</span></div>
+            <p>Supporting hotel operations, front-office systems and guest technology.</p>
+            <ul class="checks">
+              <li>Opera PMS installation, Opera printer setup and Java configuration</li>
+              <li>Micros POS — adding revenue centres, items and menu configuration</li>
+              <li>Printer installation: Canon, HP and thermal printer configuration</li>
+              <li>Windows 365 installation, Outlook configuration and troubleshooting</li>
+              <li>Material Control (MC) installation</li>
+              <li>IPTV (Hoist Group) — adding and re-arranging channels</li>
+              <li>Guest assistance for Wi-Fi, telephone and IPTV</li>
+            </ul>
+          </div>
+          <div class="glass panel" id="p2" role="tabpanel">
+            <div class="panel-top"><h3>Security, Access &amp; Systems</h3><span class="pill">Security &amp; Identity</span></div>
+            <p>Securing the environment and managing access for staff and systems.</p>
+            <ul class="checks">
+              <li>Fortinet firewall configuration and management</li>
+              <li>AD DS and Group Policy troubleshooting</li>
+              <li>Door lock installation and encoder handling</li>
+              <li>VISION LINE — adding new staff and renewing expired access IDs</li>
+              <li>Biometric device installation and staff enrolment</li>
+              <li>Avaya IP telephone configuration, termination and user setup</li>
+              <li>Hardware and software installation &amp; troubleshooting</li>
+            </ul>
+          </div>
+          <div class="glass panel" id="p3" role="tabpanel">
+            <div class="panel-top"><h3>Network Infrastructure</h3><span class="pill">Routing &amp; Switching</span></div>
+            <p>Configuring and maintaining reliable network connectivity.</p>
+            <ul class="checks">
+              <li>Configuring and troubleshooting routers, switches and access points</li>
+              <li>Switch VLAN troubleshooting and port tagging</li>
+              <li>Routing protocols: EIGRP, OSPF and RIP v2</li>
+              <li>Configuring redistribution between routing protocols</li>
+              <li>TCP/IP subnetting and IP address configuration</li>
+              <li>Managing FortiGate firewalls</li>
+            </ul>
+          </div>
+          <div class="glass panel" id="p4" role="tabpanel">
+            <div class="panel-top"><h3>Recovery &amp; Surveillance</h3><span class="pill">Data &amp; CCTV</span></div>
+            <p>Recovering systems safely and keeping surveillance and banking hardware running.</p>
+            <ul class="checks">
+              <li>Managed-switch recovery and reset without losing configuration</li>
+              <li>Disk cloning without data loss</li>
+              <li>System password recovery without data loss</li>
+              <li>IP CCTV camera configuration using vendor tools</li>
+              <li>ATM installation &amp; maintenance (NCR, Wincor)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Education & Languages ===== -->
+  <section id="education">
+    <div class="container">
+      <div class="head reveal">
+        <span class="kicker">Qualifications</span>
+        <h2>Education &amp; <span class="grad-text">Languages</span></h2>
+      </div>
+      <div class="edu-grid">
+        <div class="glass spot block reveal">
+          <h3 class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>Education</h3>
+          <div class="timeline">
+            <div class="tl"><div class="date">JULY 2016</div><h4>Graduation — B.Tech</h4><p>University of Kerala</p></div>
+            <div class="tl"><div class="date">MARCH 2012</div><h4>Higher Secondary (XII)</h4><p>Kerala Board of Higher Secondary Examination</p></div>
+            <div class="tl"><div class="date">MARCH 2010</div><h4>Matriculation (X)</h4><p>Kerala Board of Secondary Examination</p></div>
+          </div>
+        </div>
+        <div class="glass spot block reveal">
+          <h3 class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>Languages</h3>
+          <div class="langs">
+            <span class="lang">English</span><span class="lang">Arabic</span><span class="lang">Hindi</span><span class="lang">Malayalam</span><span class="lang">Tamil</span>
+          </div>
+          <ul class="facts">
+            <li><span>Location</span><span>Doha, Qatar</span></li>
+            <li><span>Nationality</span><span>Indian</span></li>
+            <li><span>Driving License</span><span>Valid Qatar License</span></li>
+            <li><span>Experience</span><span>7 Years</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section id="contact" style="padding-bottom:0">
+    <div class="container">
+      <div class="contact reveal">
+        <span class="kicker">Contact</span>
+        <h2>Let's build reliable <span class="grad-text">IT together</span></h2>
+        <p>I am open to IT Support and Network Engineering roles in Qatar. Please feel free to contact me by phone, email or LinkedIn.</p>
+        <div class="cta">
+          <a href="mailto:123ajmalb@gmail.com" class="btn btn-primary">Send an Email
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="https://wa.me/97430749247" target="_blank" rel="noopener" class="btn btn-ghost">Chat on WhatsApp</a>
+        </div>
+        <div class="c-grid">
+          <a class="glass spot c-item" href="tel:+97430749247">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></div>
+            <div><small>Phone (Qatar)</small><span>+974 3074 9247</span></div>
+          </a>
+          <a class="glass spot c-item" href="tel:+919633334100">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></div>
+            <div><small>Phone (India)</small><span>+91 96333 34100</span></div>
+          </a>
+          <a class="glass spot c-item" href="mailto:123ajmalb@gmail.com">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+            <div><small>Email</small><span>123ajmalb@gmail.com</span></div>
+          </a>
+          <a class="glass spot c-item" href="https://www.linkedin.com/in/ajmal-b-9831b0178" target="_blank" rel="noopener">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></div>
+            <div><small>LinkedIn</small><span>linkedin.com/in/ajmal-b-9831b0178</span></div>
+          </a>
+          <a class="glass spot c-item" href="https://wa.me/97430749247" target="_blank" rel="noopener">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.23 1.36.2 1.88.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.07-.13-.27-.2-.57-.35zM12.04 21.5a9.43 9.43 0 0 1-4.8-1.31l-.35-.2-3.57.93.96-3.48-.23-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.24-9.44 9.45-9.44a9.4 9.4 0 0 1 9.44 9.45c0 5.2-4.24 9.43-9.45 9.43zm8.04-17.47A11.3 11.3 0 0 0 12.04.7C5.77.7.67 5.8.67 12.06c0 2 .52 3.96 1.52 5.68L.57 23.65l6.04-1.58a11.33 11.33 0 0 0 5.43 1.38c6.26 0 11.36-5.1 11.37-11.36 0-3.04-1.19-5.89-3.34-8.04z"/></svg></div>
+            <div><small>WhatsApp</small><span>+974 3074 9247</span></div>
+          </a>
+          <div class="glass spot c-item">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+            <div><small>Location</small><span>Doha, Qatar</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <div>© <span id="year"></span> Ajmal B · IT Support &amp; Network Engineer · Doha, Qatar</div>
+      <a href="#home" class="to-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Check icons for experience lists
+    const check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" stroke-width="1.5" opacity=".35"/><path d="m8 12 3 3 5-6"/></svg>';
+    document.querySelectorAll('.checks li').forEach(li => li.insertAdjacentHTML('afterbegin', check));
+
+    // Rotating designation (typing effect)
+    const roles = ['IT Support Engineer', 'Network Engineer', 'ELV Engineer', 'Hospitality IT Specialist'];
+    const roleEl = document.getElementById('role');
+    let ri = 0, ci = roles[0].length, deleting = true;
+    const typeRole = () => {
+      const word = roles[ri];
+      roleEl.textContent = word.slice(0, ci);
+      if (deleting) {
+        if (ci > 0) { ci--; return setTimeout(typeRole, 40); }
+        deleting = false; ri = (ri + 1) % roles.length;
+        return setTimeout(typeRole, 300);
+      }
+      if (ci < word.length) { ci++; return setTimeout(typeRole, 80); }
+      deleting = true;
+      setTimeout(typeRole, 2000);
+    };
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setTimeout(typeRole, 2200);
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // Header state, scroll progress, active link
+    const header = document.getElementById('header');
+    const progress = document.getElementById('progress');
+    const sections = [...document.querySelectorAll('section[id]')];
+    const onScroll = () => {
+      const y = window.scrollY;
+      header.classList.toggle('scrolled', y > 20);
+      const max = document.documentElement.scrollHeight - innerHeight;
+      progress.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+      let current = '';
+      sections.forEach(s => { if (y >= s.offsetTop - 140) current = s.id; });
+      navLinks.querySelectorAll('a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+    };
+    addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Experience tabs
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t === tab));
+        document.querySelectorAll('.panel').forEach(p => p.classList.toggle('active', p.id === tab.dataset.tab));
+        tab.parentElement.scrollTo({ left: tab.offsetLeft - 20, behavior: 'smooth' });
+      });
+    });
+
+    // Spotlight follow
+    document.querySelectorAll('.spot').forEach(el => {
+      el.addEventListener('mousemove', e => {
+        const r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+
+    // Count-up numbers
+    const countUp = el => {
+      const target = +el.dataset.count; let n = 0;
+      const step = () => { el.textContent = n; if (n++ < target) setTimeout(step, 1100 / target); };
+      step();
+    };
+
+    // Reveal on scroll (staggered)
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const siblings = [...el.parentElement.children].filter(c => c.classList.contains('reveal'));
+        el.style.transitionDelay = Math.min(siblings.indexOf(el), 6) * 70 + 'ms';
+        el.classList.add('in');
+        el.querySelectorAll('[data-count]').forEach(countUp);
+        io.unobserve(el);
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
